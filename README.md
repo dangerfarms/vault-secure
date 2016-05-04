@@ -16,8 +16,8 @@ the machine you are creating the certificates on.
 ```
 DOMAIN=[whatever domain you are creating a certificate for]
 docker run -it --rm -p 443:443 -p 80:80 --name letsencrypt -v "$(pwd)/letsencrypt/etc:/etc/letsencrypt" -v "$(pwd)/letsencrypt/var/lib/:/var/lib/letsencrypt" quay.io/letsencrypt/letsencrypt:latest auth
-chown -R $USER:$USER letsencrypt;
-mkdir -p letsencrypt;
+sudo chown -R $USER:$USER letsencrypt;
+mkdir -p certs;
 cp letsencrypt/etc/archive/$DOMAIN/privkey1.pem certs/key.pem;
 cp letsencrypt/etc/archive/$DOMAIN/fullchain1.pem certs/cert.pem;
 
