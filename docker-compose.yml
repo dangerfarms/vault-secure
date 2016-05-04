@@ -1,0 +1,17 @@
+nginx:
+  build: nginx
+  volumes:
+  - ./nginx/certs:/etc/ssl/certs
+  - ./nginx/conf.d/nginx.conf:/etc/nginx/nginx.conf
+  - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+  ports:
+  - 80
+  - 443
+  links:
+  - vault
+  hostname: 192.168.99.100
+vault:
+  build: vault
+  restart: always
+  volumes:
+  - ./vault/conf:/conf
