@@ -9,7 +9,7 @@ nginx:
   - 443
   links:
   - vault
-  hostname: 192.168.99.100
+#  hostname: localhost
 vault:
   build: vault
   restart: always
